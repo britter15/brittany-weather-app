@@ -13,8 +13,8 @@
               top
               class="mainview-weather__refresh"
             >
-              <!-- <v-card-text style="height: 100px; position: relative">
-                <v-fab-transition>
+               <v-card-text style="height: 100px; position: relative">
+               <!--- <v-fab-transition>
                   <v-btn
                     v-show="!hidden"
                     color="white"
@@ -28,10 +28,10 @@
                     v-icon="mdi - refresh"
                   >
                   </v-btn>
-                </v-fab-transition>
-              </v-card-text> -->
+                </v-fab-transition> -->
+              </v-card-text>
             </v-speed-dial>
-          </v-card>
+          </v-card> 
           <div class="mainview-weather__content">
             <img src="/Suncloud.png" class="mainview-weather__graphic" alt="" />
             <h1 class="mainview-weather__title">Tarpon Springs</h1>
