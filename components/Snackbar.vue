@@ -1,5 +1,4 @@
 <template>
-  <!-- need to hide the snackbar-->
   <section class="Snackbar" elevation="0">
     <v-btn
       dark
