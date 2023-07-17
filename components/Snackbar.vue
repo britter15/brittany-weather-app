@@ -1,5 +1,6 @@
 <template>
   <section class="Snackbar" elevation="0">
+    <!-- refresh every 5 minutes-->
     <v-btn
       dark
       @click="snackbar = true"

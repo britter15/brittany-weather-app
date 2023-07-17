@@ -2,7 +2,7 @@
   <section class="recent" elevation="0">
     <ul class="no-bullets">
       <li>
-        <v-card class="recent-card" background="#2566A3A6;">
+        <v-card class="recent-card" background="#2566A3A6;" @click="click">
           <v-container>
             <v-row no-gutters>
               <v-col cols="6">
@@ -26,7 +26,7 @@
         </li>
         <!-- add a v-for loop that through all the recent locations in vuex once that is done do not need the 7 other cards of code-->
  <li>
-        <v-card class="recent-card" background="#2566A3A6;">
+        <v-card class="recent-card" background="#2566A3A6;" @click="emit('someevent')">
           <v-container>
             <v-row no-gutters>
               <v-col cols="6">
@@ -185,7 +185,7 @@
             </v-row>
           </v-container>
         </v-card>
-      </li> --> -->
+      </li> 
     </ul>
   </section>
 </template>
@@ -200,7 +200,8 @@ export default {
 .recent-card {
   max-width: 346px;
   border-radius: 20px;
-  background: #2566a333;
+  background-color: rgb(0,68,171);
+  padding: 15px 15px;
   &__title {
     font-family: SF Pro Display;
     font-size: 22px;
