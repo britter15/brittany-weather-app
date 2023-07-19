@@ -34,44 +34,44 @@ export default {
     return {
       weathers: [
         {
-          temp: 20,
+          temp: 29,
           time: 'Now',
         },
         {
-          temp: 20,
-          time: '01:20',
+          temp: 26,
+          time: '12 PM',
         },
         {
-          temp: 20,
-          time: '01:20',
+          temp: 24,
+          time: '1 PM',
         }, 
         {
-          temp: 20,
-          time: '01:20',
+          temp: 26,
+          time: '2 PM',
         },
         {
           temp: 20,
-          time: '01:20',
+          time: '3 PM',
+        },
+        {
+          temp: 26,
+          time: '4 PM',
         },
         {
           temp: 20,
-          time: '01:20',
+          time: '5 PM',
         },
         {
-          temp: 20,
-          time: '01:20',
+          temp: 26,
+          time: '6 PM',
         },
         {
-          temp: 20,
-          time: '01:20',
+          temp: 26,
+          time: '7 PM',
         },
         {
-          temp: 20,
-          time: '01:20',
-        },
-        {
-          temp: 20,
-          time: '01:20',
+          temp: 26,
+          time: '8 PM',
         },
       ],
       country_detail : ''
