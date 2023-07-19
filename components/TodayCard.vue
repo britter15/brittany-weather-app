@@ -41,8 +41,9 @@ export default {
       forecast: [],
     };
   },
-  methods: {
-  },
+  // methods: {
+  //   axios.get('https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={b8f5d5a3c8c40a270978a5686d277fbd}')
+  // },
   computed() {},
 };
 </script>
