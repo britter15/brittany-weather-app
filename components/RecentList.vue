@@ -189,7 +189,6 @@
     </ul>
   </section>
 </template>
-<!-- need to add mounted, methods, and computed below-->
 <script>
 export default {
 
@@ -198,7 +197,6 @@ export default {
 
 <style lang="scss" scoped>
 .recent-card {
-  max-width: 346px;
   border-radius: 20px;
   background-color: rgb(0,68,171);
   padding: 15px 15px;
