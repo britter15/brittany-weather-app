@@ -1,26 +1,14 @@
 <template>
+  <!-- need to hide the snackbar-->
   <section class="Snackbar" elevation="0">
-    <!-- refresh every 5 minutes-->
-    <v-btn
-      dark
-      @click="snackbar = true"
-      elevation="0"
-    >
+    <v-btn @click="snackbar = true" elevation="0">
       Open Snackbar
     </v-btn>
-    <v-snackbar
-      v-model="snackbar"
-    >
+    <v-snackbar v-model="snackbar">
       {{ text }}
 
       <template v-slot:action="{ attrs }">
-        <v-btn
-          color="pink"
-          text
-          v-bind="attrs"
-          @click="snackbar = false"
-          elevation="0"
-        >
+        <v-btn color="pink" text v-bind="attrs" @click="snackbar = false" elevation="0">
           Close
         </v-btn>
       </template>
@@ -29,7 +17,7 @@
 </template>
 
 <script>
-  export default {}
+export default {}
 
 </script>
 
@@ -39,5 +27,4 @@
   padding: 14px 57px 0 0;
   display: none;
 }
-
 </style>

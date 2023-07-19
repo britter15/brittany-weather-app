@@ -1,226 +1,137 @@
 <template>
-  <section class="recent" elevation="0">
-    <ul class="no-bullets">
+  <section class="recent" style="padding-bottom: 148px;" elevation="0">
+    <ul class="no-bullets country-list">
       <li>
-        <v-card class="recent-card" background="#2566A3A6;" @click="click">
+        <v-card class="recent-card pb-2">
           <v-container>
             <v-row no-gutters>
-              <v-col cols="6">
-                <h1 class="recent-card__title">Tarpon Springs</h1>
-              </v-col>
-              <v-col cols="6">
-                <p class="recent-card__degree">30&deg;</p>
-              </v-col>
-              <v-col cols="12">
-                <p class="recent-card__time">11:22 AM</p>
-              </v-col>
-              <v-col cols="6">
-                <p class="recent-card__description">Mostly Sunny</p>
-              </v-col>
-              <v-col cols="6">
-                <p class="recent-card__range">High: 34&deg; Low: 28&deg;</p>
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-card>
-        </li>
-        <!-- add a v-for loop that through all the recent locations in vuex once that is done do not need the 7 other cards of code-->
- <li>
-        <v-card class="recent-card" background="#2566A3A6;" @click="emit('someevent')">
-          <v-container>
-            <v-row no-gutters>
-              <v-col cols="6">
-                <h1 class="recent-card__title">Denver</h1>
-              </v-col>
-              <v-col cols="6">
-                <p class="recent-card__degree">52&deg;</p>
-              </v-col>
-              <v-col cols="12">
-                <p class="recent-card__time">9:22 AM</p>
-              </v-col>
-              <v-col cols="6">
-                <p class="recent-card__description">Mostly Cloudly</p>
-              </v-col>
-              <v-col cols="6">
-                <p class="recent-card__range">High: 52&deg; Low: 34&deg;</p>
+              <v-col style="border: 1px solid #5096FF ; border-radius: 20px ;" class="mb-2 pa-2" cols="12"
+                v-for="country in cities" :key="country">
+                <h1 class="recent-card__title" @click="getDetail(country)">{{ country.name }}</h1>
+                <p class="recent-card__degree set_low"> {{ country.main.temp }} &deg;</p>
+                <p class="recent-card__time">10:20 PM </p>
+
+                <p class="recent-card__description">Mostly {{ country.weather[0].main }}</p>
+                <p class="recent-card__range set_low" style="padding-top: 10px !important;">High: {{ Math.round(country.main.temp_max - 273) }} &deg;
+                  Low: {{ Math.round(country.main.temp_min - 273) }} &deg;</p>
               </v-col>
             </v-row>
           </v-container>
         </v-card>
       </li>
-      <li>
-        <v-card class="recent-card" background="#2566A3A6;">
-          <v-container>
-            <v-row no-gutters>
-              <v-col cols="6">
-                <h1 class="recent-card__title">Tampa</h1>
-              </v-col>
-              <v-col cols="6">
-                <p class="recent-card__degree">32&deg;</p>
-              </v-col>
-              <v-col cols="12">
-                <p class="recent-card__time">11:22 AM</p>
-              </v-col>
-              <v-col cols="6">
-                <p class="recent-card__description">Mostly Sunny</p>
-              </v-col>
-              <v-col cols="6">
-                <p class="recent-card__range">High: 32&deg; Low: 24&deg;</p>
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-card>
-      </li>
-      <li>
-        <v-card class="recent-card" background="#2566A3A6;">
-          <v-container>
-            <v-row no-gutters>
-              <v-col cols="6">
-                <h1 class="recent-card__title">Jacksonville</h1>
-              </v-col>
-              <v-col cols="6">
-                <p class="recent-card__degree">32&deg;</p>
-              </v-col>
-              <v-col cols="12">
-                <p class="recent-card__time">11:22 AM</p>
-              </v-col>
-              <v-col cols="6">
-                <p class="recent-card__description">Mostly Cloudy</p>
-              </v-col>
-              <v-col cols="6">
-                <p class="recent-card__range">High: 36&deg; Low: 21&deg;</p>
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-card>
-      </li>
-      <li>
-        <v-card class="recent-card" background="#2566A3A6;">
-          <v-container>
-            <v-row no-gutters>
-              <v-col cols="6">
-                <h1 class="recent-card__title">Denver</h1>
-              </v-col>
-              <v-col cols="6">
-                <p class="recent-card__degree">52&deg;</p>
-              </v-col>
-              <v-col cols="12">
-                <p class="recent-card__time">9:22 AM</p>
-              </v-col>
-              <v-col cols="6">
-                <p class="recent-card__description">Mostly Cloudly</p>
-              </v-col>
-              <v-col cols="6">
-                <p class="recent-card__range">High: 52&deg; Low: 34&deg;</p>
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-card>
-      </li>
-      <li>
-        <v-card class="recent-card" background="#2566A3A6;">
-          <v-container>
-            <v-row no-gutters>
-              <v-col cols="6">
-                <h1 class="recent-card__title">Tampa</h1>
-              </v-col>
-              <v-col cols="6">
-                <p class="recent-card__degree">32&deg;</p>
-              </v-col>
-              <v-col cols="12">
-                <p class="recent-card__time">11:22 AM</p>
-              </v-col>
-              <v-col cols="6">
-                <p class="recent-card__description">Mostly Sunny</p>
-              </v-col>
-              <v-col cols="6">
-                <p class="recent-card__range">High: 32&deg; Low: 24&deg;</p>
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-card>
-      </li>
-      <li>
-        <v-card class="recent-card" background="#2566A3A6;">
-          <v-container>
-            <v-row no-gutters>
-              <v-col cols="6">
-                <h1 class="recent-card__title">Jacksonville</h1>
-              </v-col>
-              <v-col cols="6">
-                <p class="recent-card__degree">32&deg;</p>
-              </v-col>
-              <v-col cols="12">
-                <p class="recent-card__time">11:22 AM</p>
-              </v-col>
-              <v-col cols="6">
-                <p class="recent-card__description">Mostly Cloudy</p>
-              </v-col>
-              <v-col cols="6">
-                <p class="recent-card__range">High: 36&deg; Low: 21&deg;</p>
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-card>
-      </li>
-      <li>
-        <v-card class="recent-card" background="#2566A3A6;">
-          <v-container>
-            <v-row no-gutters>
-              <v-col cols="6">
-                <h1 class="recent-card__title">Tampa</h1>
-              </v-col>
-              <v-col cols="6">
-                <p class="recent-card__degree">32&deg;</p>
-              </v-col>
-              <v-col cols="12">
-                <p class="recent-card__time">11:22 AM</p>
-              </v-col>
-              <v-col cols="6">
-                <p class="recent-card__description">Mostly Sunny</p>
-              </v-col>
-              <v-col cols="6">
-                <p class="recent-card__range">High: 32&deg; Low: 24&deg;</p>
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-card>
-      </li> 
     </ul>
   </section>
 </template>
+<!-- need to add mounted, methods, and computed below-->
 <script>
 export default {
+  name: 'RecentList',
   data() {
     return {
-      information: []
+      states: [],
+      cities: [
+        {
+          name:'Tarpon Spring',
+          main:{
+            temp : 30,
+            temp_min : 300 ,
+            temp_max : 320
+          },
+          weather: [
+            {
+              main :'Cloudy'
+            }
+          ]
+        },
+        {
+          name: 'Denver',
+          main: {
+            temp: 52,
+            temp_min: 300,
+            temp_max: 320
+          },
+          weather: [
+            {
+              main: 'Cloudy'
+            }
+          ]
+        },
+        {
+          name: 'Tampa',
+          main: {
+            temp: 32,
+            temp_min: 300,
+            temp_max: 320
+          },
+          weather: [
+            {
+              main: 'Cloudy'
+            }
+          ]
+        },
+        {
+          name: 'Jacksonville',
+          main: {
+            temp: 34,
+            temp_min: 300,
+            temp_max: 320
+          },
+          weather: [
+            {
+              main: 'Cloudy'
+            }
+          ]
+        },
+        {
+          name: 'Tampa',
+          main: {
+            temp: 52,
+            temp_min: 300,
+            temp_max: 320
+          },
+          weather: [
+            {
+              main: 'Cloudy'
+            }
+          ]
+        },
+      ], 
     }
   },
-  // const apiKey = 'b8f5d5a3c8c40a270978a5686d277fbd';
-  // const cityName = 'Tampa';
-  // axios.get('https://api.openweathermap.org/geo/1.0/direct?q=Tampa&limit=5&appid={b8f5d5a3c8c40a270978a5686d277fbd'),
+  methods: {
+    async getWeather() {
+      this.states = this.$store.state.states;
+      this.states.forEach((value) => {
+        fetch("https://api.openweathermap.org/data/2.5/weather?lat=" + value.lat + "&lon=" + value.lon + "&appid=b8f5d5a3c8c40a270978a5686d277fbd", { method: "GET" })
+          .then((response) => {
+            response.json().then((data) => {
+              // console.log(data)
+              this.cities.push(data)
+            });
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      });
+    },
+    getDetail(name){
+      // here is country name is country detail
+      this.$store.state.show_detail = name ;
+    }
+  },
+  watch: {
+    "$store.state.search_city": "getWeather",
+  },
+
 }
-  .then(response => {
-    // Handle the response data
-    console.log(response.data);
-  })
-  .catch(error => {
-    // Handle the error
-    console.error(error);
-  });
-
-
-
-
-
-
 </script>
 
 <style lang="scss" scoped>
 .recent-card {
+  max-width: 346px;
   border-radius: 20px;
-  background-color: rgb(0,68,171);
-  padding: 15px 15px;
+  background: #2566a333;
+
   &__title {
     font-family: SF Pro Display;
     font-size: 22px;
@@ -230,7 +141,12 @@ export default {
     text-align: left;
     color: #ffffff;
     margin-bottom: 3px;
+
+    width: 50%;
+    display: inline-block;
+    padding-top: 15px !important;
   }
+
   &__time {
     font-family: SF Pro Display;
     font-size: 14px;
@@ -241,6 +157,7 @@ export default {
     color: #ffffff;
     margin-bottom: 8px;
   }
+
   &__description {
     font-family: SF Pro Display;
     font-size: 16px;
@@ -249,7 +166,12 @@ export default {
     letter-spacing: 0em;
     text-align: left;
     color: #ffffff;
+    width: 50%;
+    display: inline-block;
+    float: left;
+    padding-top: 15px !important;
   }
+
   &__degree {
     font-family: SF Pro Display;
     font-size: 50px;
@@ -259,6 +181,7 @@ export default {
     text-align: center;
     color: #ffffff;
   }
+
   &__range {
     font-family: SF Pro Display;
     font-size: 15px;
@@ -269,7 +192,19 @@ export default {
     color: #ffffff;
   }
 }
+
 .recent .no-bullets {
   list-style: none;
+}
+
+.country-list {
+  width: 90%;
+  display: inline-block;
+}
+
+.set_low {
+  width: 50%;
+  display: inline-block;
+  float: right;
 }
 </style>

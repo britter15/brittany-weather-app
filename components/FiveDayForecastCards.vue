@@ -1,84 +1,38 @@
 <template>
   <section class="forecast d-flex" elevation="0">
-    <v-card class="forecast-card" elevation="0" mb-4>
-      <v-container>
+    <v-card class="forecast-card" elevation="0">
+      <v-container style="background-color: #104084;">
         <v-row no-gutters>
           <v-col cols="6">
-            <h2 class="forecast-card__title">5-Day Forecast</h2>
+            <h2 class="forecast-card__title">10-Day Forecast</h2>
           </v-col>
-          <v-col cols="12">
+          <v-col v-for="day in days" :key="day" cols="12">
             <div class="d-flex">
-              <p class="forecast-card-day">Monday</p>
-              <img src="/RainDrops.png" alt="" />
-              <div class="d-flex">
-                <p class="forecast-card__range">13&deg;c</p>
-                <p class="forecast-card__range">10&deg;c</p>
-              </div>
-            </div>
-          </v-col>
-          <v-col cols="12">
-            <div class="d-flex">
-              <p class="forecast-card-day">Tuesday</p>
-              <img src="/ThunderLightening.png" alt="" />
-              <div class="d-flex">
-                <p class="forecast-card__range">17&deg;c</p>
-                <p class="forecast-card__range">12&deg;c</p>
-              </div>
-            </div>
-          </v-col>
-          <v-col cols="12">
-            <div class="d-flex">
-              <p class="forecast-card-day">Wednesday</p>
-              <img src="/SunCloudRain.png" alt="" />
-              <div class="d-flex">
-                <p class="forecast-card__range">21&deg;c</p>
-                <p class="forecast-card__range">18&deg;c</p>
+              <p class="forecast-card-day" style="padding-top: 10px;">{{ day.day }}</p>
+              <img :src="'./' + day.image" alt="" />
+              <div class="d-flex" style="padding-top: 10px;">
+                <p class="forecast-card__range">{{ day.high_temp }} &deg;c</p>
+                <p class="forecast-card__range low-temp">{{ day.low_temp }} &deg;c</p>
               </div>
             </div>
           </v-col>
         </v-row>
       </v-container>
     </v-card>
-
-
-
-
-
-
-
-    <v-card class="forecast-card" elevation="0" mb-4>
-      <v-container>
+    <!-- use v-for loop to make identical card-->
+    <v-card class="forecast-card" elevation="0">
+      <v-container style="background-color: #104084;">
         <v-row no-gutters>
           <v-col cols="6">
-            <h2 class="forecast-card__title">5-Day Forecast</h2>
+            <h2 class="forecast-card__title">10-Day Forecast</h2>
           </v-col>
-          <v-col cols="12">
+          <v-col v-for="day in days" :key="day" cols="12">
             <div class="d-flex">
-              <p class="forecast-card-day">Monday</p>
-              <img src="/RainDrops.png" alt="" />
-              <div class="d-flex">
-                <p class="forecast-card__range">13&deg;c</p>
-                <p class="forecast-card__range">10&deg;c</p>
-              </div>
-            </div>
-          </v-col>
-          <v-col cols="12">
-            <div class="d-flex">
-              <p class="forecast-card-day">Tuesday</p>
-              <img src="/ThunderLightening.png" alt="" />
-              <div class="d-flex">
-                <p class="forecast-card__range">17&deg;c</p>
-                <p class="forecast-card__range">12&deg;c</p>
-              </div>
-            </div>
-          </v-col>
-          <v-col cols="12">
-            <div class="d-flex">
-              <p class="forecast-card-day">Wednesday</p>
-              <img src="/SunCloudRain.png" alt="" />
-              <div class="d-flex">
-                <p class="forecast-card__range">21&deg;c</p>
-                <p class="forecast-card__range">18&deg;c</p>
+              <p class="forecast-card-day" style="padding-top: 10px;">{{ day.day }}</p>
+              <img :src="'./' + day.image" alt="" />
+              <div class="d-flex" style="padding-top: 10px;">
+                <p class="forecast-card__range">{{ day.high_temp }} &deg;c</p>
+                <p class="forecast-card__range low-temp">{{ day.low_temp }} &deg;c</p>
               </div>
             </div>
           </v-col>
@@ -92,21 +46,39 @@
 export default {
   data() {
     return {
-      fiveDay: null,
+      days: [
+        {
+          day: 'Monday',
+          image: 'RainDrops.png',
+          high_temp: 13,
+          low_temp: 10
+        },
+        {
+          day: 'Tuseday',
+          image: 'ThunderLightening.png',
+          high_temp: 17,
+          low_temp: 12
+        },
+        {
+          day: 'Wednesday',
+          image: 'SunCloudRain.png',
+          high_temp: 21,
+          low_temp: 18
+        },
+      ]
     }
   },
-//   axios.get('api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid={b8f5d5a3c8c40a270978a5686d277fbd}')
-// };
-}
+};
 </script>
 
 <style lang="scss" scoped>
 .forecast-card {
-  background: rgb(0,68,171)!important;
+  background: rgb(0, 68, 171) !important;
   width: 455px;
   border-radius: 20px;
+  margin-top: 42px;
   margin-left: 31px;
-  padding: 21px 21px;
+
   &__title {
     font-family: SF Pro Display;
     font-size: 20px;
@@ -115,8 +87,8 @@ export default {
     letter-spacing: 0em;
     text-align: left;
     color: #ffffff;
-    padding-bottom: 17px;
   }
+
   &__day {
     font-family: Alegreya Sans;
     font-size: 18px;
@@ -126,6 +98,7 @@ export default {
     text-align: left;
     color: #ffffff;
   }
+
   &__range {
     font-family: Alegreya Sans;
     font-size: 10px;
@@ -139,5 +112,8 @@ export default {
 }
 .d-flex {
   justify-content: space-between;
+}
+.low-temp {
+  color: silver ;
 }
 </style>
