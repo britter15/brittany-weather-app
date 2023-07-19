@@ -54,6 +54,7 @@ export default {
   border-radius: 20px;
   margin-left: 30.5px;
   margin-bottom: 42px;
+  padding: 25px 25px;
   &__title {
     font-family: SF Pro Display;
     font-size: 20px;
