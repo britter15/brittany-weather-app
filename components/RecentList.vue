@@ -30,7 +30,7 @@ export default {
       states: [],
       cities: [
         {
-          name:'Tarpon Spring',
+          name:'Tarpon Springs',
           main:{
             temp : 30,
             temp_min : 300 ,
