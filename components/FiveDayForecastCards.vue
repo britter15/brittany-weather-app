@@ -39,7 +39,13 @@
         </v-row>
       </v-container>
     </v-card>
-    <!-- use v-for loop to make identical card-->
+
+
+
+
+
+
+
     <v-card class="forecast-card" elevation="0" mb-4>
       <v-container>
         <v-row no-gutters>
