@@ -8,7 +8,7 @@
             <h2 class="today-card__title" style="padding-left: 20px;">Today</h2>
           </v-col>
           <v-col cols="6">
-            <p class="today-card__date" style="padding-right: 60px;">Mar, 9</p>
+            <p class="today-card__date" style="padding-right: 40px;">Mar, 9</p>
           </v-col>
           <v-container class="lighten-5">
             <v-row no-gutters>
