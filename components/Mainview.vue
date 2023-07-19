@@ -65,8 +65,7 @@ export default {
         77.25% 77.25% at 69.89% 22.75%,
         #5096ff 0%,
         #0044ab 100%
-      )
-      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+      ),
     linear-gradient(0deg, #15488a, #15488a);
   width: 1001px;
   height: 999px;

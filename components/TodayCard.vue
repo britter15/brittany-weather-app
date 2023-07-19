@@ -53,6 +53,7 @@ export default {
   max-width: 940px;
   border-radius: 20px;
   margin-left: 30.5px;
+  margin-bottom: 42px;
   &__title {
     font-family: SF Pro Display;
     font-size: 20px;

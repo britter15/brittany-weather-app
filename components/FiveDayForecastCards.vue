@@ -91,9 +91,8 @@ export default {};
   background: rgb(0,68,171)!important;
   width: 455px;
   border-radius: 20px;
-  margin-top: 42px;
   margin-left: 31px;
-  padding: 21px 32px;
+  padding: 21px 21px;
   &__title {
     font-family: SF Pro Display;
     font-size: 20px;
