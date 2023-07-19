@@ -22,7 +22,6 @@
     </ul>
   </section>
 </template>
-<!-- need to add mounted, methods, and computed below-->
 <script>
 export default {
   name: 'RecentList',

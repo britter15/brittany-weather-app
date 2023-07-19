@@ -8,7 +8,7 @@
           </v-col>
           <v-col v-for="day in days" :key="day" cols="12">
             <div class="d-flex">
-              <p class="forecast-card-day" style="padding-top: 10px;">{{ day.day }}</p>
+              <p class="forecast-card__day">{{ day.day }}</p>
               <img :src="'./' + day.image" alt="" />
               <div class="d-flex" style="padding-top: 10px;">
                 <p class="forecast-card__range">{{ day.high_temp }} &deg;c</p>
@@ -19,7 +19,6 @@
         </v-row>
       </v-container>
     </v-card>
-    <!-- use v-for loop to make identical card-->
     <v-card class="forecast-card" elevation="0">
       <v-container style="background-color: #104084;">
         <v-row no-gutters>
@@ -28,7 +27,7 @@
           </v-col>
           <v-col v-for="day in days" :key="day" cols="12">
             <div class="d-flex">
-              <p class="forecast-card-day" style="padding-top: 10px;">{{ day.day }}</p>
+              <p class="forecast-card__day">{{ day.day }}</p>
               <img :src="'./' + day.image" alt="" />
               <div class="d-flex" style="padding-top: 10px;">
                 <p class="forecast-card__range">{{ day.high_temp }} &deg;c</p>
@@ -97,6 +96,7 @@ export default {
     letter-spacing: 0em;
     text-align: left;
     color: #ffffff;
+    padding-top: 10px;
   }
 
   &__range {
