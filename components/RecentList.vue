@@ -39,7 +39,7 @@ export default {
           },
           weather: [
             {
-              main :'Cloudy'
+              main :'Sunny'
             }
           ]
         },

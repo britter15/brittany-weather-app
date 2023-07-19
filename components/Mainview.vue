@@ -1,6 +1,5 @@
 <template>
   <section class="mainview-weather" elevation="0">
-    <!-- check sass variables for vuetify components -->
     <v-container>
       <v-row>
         <v-col cols="12">
