@@ -93,8 +93,8 @@ export default {
     color: #ffffff;
   }
   &__graphic{
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
     display: flex;
     justify-content: center;
   }
