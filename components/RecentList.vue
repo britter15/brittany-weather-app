@@ -82,7 +82,7 @@ export default {
           ]
         },
         {
-          name: 'Tampa',
+          name: 'Denver',
           main: {
             temp: 52,
             temp_min: 300,
@@ -94,6 +94,19 @@ export default {
             }
           ]
         },
+        // {
+        //   name: 'Tampa',
+        //   main: {
+        //     temp: 32,
+        //     temp_min: 300,
+        //     temp_max: 320
+        //   },
+        //   weather: [
+        //     {
+        //       main: 'Cloudy'
+        //     }
+        //   ]
+        // },
       ], 
     }
   },
