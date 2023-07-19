@@ -10,6 +10,7 @@
               absolute
               right
               top
+              color="white"
               class="mainview-weather__refresh"
             >
             </v-speed-dial>
