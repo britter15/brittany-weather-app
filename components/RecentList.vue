@@ -191,8 +191,29 @@
 </template>
 <script>
 export default {
-
+  data() {
+    return {
+      information: []
+    }
+  },
+  // const apiKey = 'b8f5d5a3c8c40a270978a5686d277fbd';
+  // const cityName = 'Tampa';
+  // axios.get('https://api.openweathermap.org/geo/1.0/direct?q=Tampa&limit=5&appid={b8f5d5a3c8c40a270978a5686d277fbd'),
 }
+  .then(response => {
+    // Handle the response data
+    console.log(response.data);
+  })
+  .catch(error => {
+    // Handle the error
+    console.error(error);
+  });
+
+
+
+
+
+
 </script>
 
 <style lang="scss" scoped>
