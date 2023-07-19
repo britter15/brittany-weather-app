@@ -4,7 +4,7 @@
       <v-container style="background-color: #104084;">
         <v-row no-gutters>
           <v-col cols="6">
-            <h2 class="forecast-card__title">10-Day Forecast</h2>
+            <h2 class="forecast-card__title">5-Day Forecast</h2>
           </v-col>
           <v-col v-for="day in days" :key="day" cols="12">
             <div class="d-flex">
@@ -23,7 +23,7 @@
       <v-container style="background-color: #104084;">
         <v-row no-gutters>
           <v-col cols="6">
-            <h2 class="forecast-card__title">10-Day Forecast</h2>
+            <h2 class="forecast-card__title">5-Day Forecast</h2>
           </v-col>
           <v-col v-for="day in days" :key="day" cols="12">
             <div class="d-flex">
