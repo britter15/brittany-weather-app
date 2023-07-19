@@ -9,7 +9,7 @@
                 v-for="country in cities" :key="country">
                 <h1 class="recent-card__title" @click="getDetail(country)">{{ country.name }}</h1>
                 <p class="recent-card__degree set_low"> {{ country.main.temp }} &deg;</p>
-                <p class="recent-card__time">10:20 PM </p>
+                <p class="recent-card__time">{{ country.main.time }}</p>
 
                 <p class="recent-card__description">Mostly {{ country.weather[0].main }}</p>
                 <p class="recent-card__range set_low" style="padding-top: 10px !important;">High: {{ Math.round(country.main.temp_max - 273) }} &deg;
@@ -32,6 +32,7 @@ export default {
         {
           name:'Tarpon Springs',
           main:{
+            time : '11:22 AM',
             temp : 30,
             temp_min : 300 ,
             temp_max : 320
@@ -45,6 +46,7 @@ export default {
         {
           name: 'Denver',
           main: {
+            time : '9:22 AM',
             temp: 52,
             temp_min: 300,
             temp_max: 320
@@ -58,6 +60,7 @@ export default {
         {
           name: 'Tampa',
           main: {
+            time : '11:22 AM',
             temp: 32,
             temp_min: 300,
             temp_max: 320
@@ -71,6 +74,7 @@ export default {
         {
           name: 'Jacksonville',
           main: {
+            time : '11:22 AM',
             temp: 34,
             temp_min: 300,
             temp_max: 320
@@ -84,6 +88,7 @@ export default {
         {
           name: 'Denver',
           main: {
+            time : '9:22 AM',
             temp: 52,
             temp_min: 300,
             temp_max: 320
