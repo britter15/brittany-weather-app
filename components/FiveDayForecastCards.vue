@@ -83,7 +83,15 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      fiveDay: null,
+    }
+  },
+//   axios.get('api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid={b8f5d5a3c8c40a270978a5686d277fbd}')
+// };
+}
 </script>
 
 <style lang="scss" scoped>
