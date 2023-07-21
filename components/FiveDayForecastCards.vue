@@ -7,19 +7,21 @@
             <h2 class="forecast-card__title">5-Day Forecast</h2>
           </v-col>
           <v-col cols="12" v-for="(data, index) in fiveDayData.slice(0, 3)" :key="index">
+            <v-row no-gutters>
+              <v-col cols="4">
+                <p class="forecast-card__day">{{ $moment(data.dt_txt).format("dddd") }}</p>
+              </v-col>
+              <v-col cols="4" class="forecast-card__image">
+                <img :src="`https://openweathermap.org/img/wn/${data.weather[0].icon}.png`" alt="" />
+              </v-col>
+              <v-col cols="4">
+                <div class="forecast-card__temperature">
+                  <p class="forecast-card__range">{{ Math.round(data.main.temp_max - 273.15) }} &deg;c</p>
+                  <p class="forecast-card__range">{{ Math.round(data.main.temp_min - 273.15) }} &deg;c</p>
+                </div>
+              </v-col>
+            </v-row>
           </v-col>
-          <v-row no-gutters>
-            <v-col cols="4">
-              <p class="forecast-card__day">{{ $moment(data.dt_txt).format("dddd") }}</p>
-            </v-col>
-            <v-col cols="4" class="forecast-card__image">
-              <img :src="`https://openweathermap.org/img/wn/${data.weather[0].icon}.png`" alt="" />
-            </v-col>/
-            <div class="forecast-card__temperature">
-              <p class="forecast-card__range">{{ Math.round(data.main.temp_max - 273.15) }} &deg;c</p>
-              <p class="forecast-card__range">{{ Math.round(data.main.temp_min - 273.15) }} &deg;c</p>
-            </div>
-          </v-row>
         </v-row>
       </v-container>
     </v-card>
@@ -29,15 +31,21 @@
           <v-col cols="6">
             <h2 class="forecast-card__title">5-Day Forecast</h2>
           </v-col>
-          <v-col v-for="day in days" :key="day" cols="12">
-            <div class="d-flex">
-              <p class="forecast-card__day">{{ day.day }}</p>
-              <img :src="'./' + day.image" alt="" />
-              <div class="d-flex" style="padding-top: 10px;">
-                <p class="forecast-card__range">{{ day.high_temp }} &deg;c</p>
-                <p class="forecast-card__range low-temp">{{ day.low_temp }} &deg;c</p>
-              </div>
-            </div>
+          <v-col cols="12" v-for="(data, index) in fiveDayData.slice(3, 5)" :key="index">
+            <v-row no-gutters>
+              <v-col cols="4">
+                <p class="forecast-card__day">{{ $moment(data.dt_txt).format("dddd") }}</p>
+              </v-col>
+              <v-col cols="4" class="forecast-card__image">
+                <img :src="`https://openweathermap.org/img/wn/${data.weather[0].icon}.png`" alt="" />
+              </v-col>
+              <v-col cols="4">
+                <div class="forecast-card__temperature">
+                  <p class="forecast-card__range">{{ Math.round(data.main.temp_max - 273.15) }} &deg;c</p>
+                  <p class="forecast-card__range">{{ Math.round(data.main.temp_min - 273.15) }} &deg;c</p>
+                </div>
+              </v-col>
+            </v-row>
           </v-col>
         </v-row>
       </v-container>
@@ -47,6 +55,11 @@
 
 <script>
 export default {
+  computed: {
+    forecastData() {
+      return this.$store.getters.getForecastData;
+    }
+  }
   data() {
     return {
       days: [
@@ -79,8 +92,7 @@ export default {
   background: rgb(0, 68, 171) !important;
   width: 455px;
   border-radius: 20px;
-  margin-top: 42px;
-  margin-left: 31px;
+  margin: 15px;
 
   &__title {
     font-family: SF Pro Display;
@@ -90,6 +102,7 @@ export default {
     letter-spacing: 0em;
     text-align: left;
     color: #ffffff;
+    padding-bottom: 17px;
   }
 
   &__day {
@@ -100,7 +113,12 @@ export default {
     letter-spacing: 0em;
     text-align: left;
     color: #ffffff;
-    padding-top: 10px;
+  }
+
+  &__image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &__range {
