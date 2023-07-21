@@ -58,40 +58,28 @@ export default {
   computed: {
     forecastData() {
       return this.$store.getters.getForecastData;
-    }
-  }
-  data() {
-    return {
-      days: [
-        {
-          day: 'Monday',
-          image: 'RainDrops.png',
-          high_temp: 13,
-          low_temp: 10
-        },
-        {
-          day: 'Tuseday',
-          image: 'ThunderLightening.png',
-          high_temp: 17,
-          low_temp: 12
-        },
-        {
-          day: 'Wednesday',
-          image: 'SunCloudRain.png',
-          high_temp: 21,
-          low_temp: 18
-        },
-      ]
-    }
+    },
+    fiveDayData() {
+      const arr = this.forecastData.list;
+      const result = [];
+
+      for (let i = 0; i < arr.length; i += 8) {
+        result.push(arr[i]);
+      }
+      return result;
+    },
   },
+
 };
+
 </script>
 
 <style lang="scss" scoped>
-.forecast{
+.forecast {
   margin-left: auto;
   margin-right: auto;
 }
+
 .forecast-card {
   background: rgb(0, 68, 171) !important;
   width: 455px;
@@ -119,7 +107,7 @@ export default {
     color: #ffffff;
   }
 
-  &__image{
+  &__image {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -135,18 +123,20 @@ export default {
     color: #ffffff;
     margin-right: 13px;
   }
-  &__temperature{
+
+  &__temperature {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 }
 
-.d-flex {
-  justify-content: space-between;
+p {
+  margin-bottom: 0;
+  line-height: 50px;
 }
 
-.low-temp {
-  color: silver;
+.d-flex {
+  justify-content: space-between;
 }
 </style>
