@@ -1,26 +1,28 @@
 <template>
   <!-- only have to do a 3 hr forecast so stop after 3 hourly / forecast section here in doc-->
-  <section class="today">
+  <section class="today" v-if="forecastData">
     <v-card class="today-card" elevation="0">
       <v-container style="background-color:#104084 ;">
         <v-row no-gutters>
           <v-col cols="6">
-            <h2 class="today-card__title" style="padding-left: 20px;">Today</h2>
+            <h2 class="today-card__title">Today</h2>
           </v-col>
           <v-col cols="6">
-            <p class="today-card__date" style="padding-right: 40px;">Mar, 9</p>
+            <p class="today-card__date">{{ $moment().format("MMMMM, DD") }}</p>
           </v-col>
-          <v-container class="lighten-5">
-            <v-row no-gutters>
-              <v-card class="mx-2" v-for="weather in weathers" :key="weather" cols="1" style="border-radius: 20px !important; border: 1px solid #5096FF; width: 70px;" tile>
-                <h6 style="font-size: 18px; line-height: 20px ;" class="text-center pt-3"> {{ weather.temp }} &deg;C </h6>
-                <figure>
-                  <img  height="43px" width="100%" src="/TodaySunCloud.png" class="today-card__graphic" alt="" />
-                </figure>
-                <h6 style="font-size: 18px; line-height: 20px ;" class="text-center pb-3"> {{  weather.time }} </h6>
-              </v-card>
-            </v-row>
-          </v-container>
+          <v-col class="today-card__main" cols="1.5" v-for="(data, index) in forecastData.list.slice(0, 10)" :key="index">
+              <div class="d-flex">
+                <p class="today-card__degrees">
+                  {{ Math.round(data.min.temp - 273.15) }}&deg;C
+                </p>
+              </div>
+              <div class="d-flex">
+                <img src="`https://openweathermap.org/img/wn/${data.weather[0].icon}.png`" class="today-card__graphic" alt="">
+              </div>
+              <div class="d-flex">
+                <p class="today-card__time">{{ $moment(data.dt_txt).format("h A") }}</p>
+              </div>
+          </v-col>
         </v-row>
       </v-container>
     </v-card>
@@ -32,70 +34,15 @@
 export default {
   data() {
     return {
-      weathers: [
-        {
-          temp: 29,
-          time: 'Now',
-        },
-        {
-          temp: 26,
-          time: '12 PM',
-        },
-        {
-          temp: 24,
-          time: '1 PM',
-        }, 
-        {
-          temp: 26,
-          time: '2 PM',
-        },
-        {
-          temp: 20,
-          time: '3 PM',
-        },
-        {
-          temp: 26,
-          time: '4 PM',
-        },
-        {
-          temp: 20,
-          time: '5 PM',
-        },
-        {
-          temp: 26,
-          time: '6 PM',
-        },
-        {
-          temp: 26,
-          time: '7 PM',
-        },
-        {
-          temp: 26,
-          time: '8 PM',
-        },
-      ],
-      country_detail : ''
+      forecast: {},
     };
   },
   methods: {
-    getTodayforcast() {
-      this.country_detail = this.$store.state.show_detail ;
-      console.log(this.country_detail.coord.lat)
-      fetch("https://api.openweathermap.org/data/2.5/forecast?lat=" + this.country_detail.coord.lat + "&lon=" + this.country_detail.coord.lon + "&appid=b8f5d5a3c8c40a270978a5686d277fbd", { method: "GET" })
-        .then((response) => {
-          response.json().then((data) => {
-            console.log(data)
-          });
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    }
-  },
-  watch: {
-    "$store.state.show_detail": "getTodayforcast"
-  },
-};
+    forecastData() {
+      return this.$store.getters.getForecastData;
+    },
+},
+}
 </script>
 
 <style lang="scss" scoped>

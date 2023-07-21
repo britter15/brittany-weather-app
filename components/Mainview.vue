@@ -1,10 +1,5 @@
 <template>
   <section class="mainview-weather" elevation="0">
-    <!-- <vue-custom-scrollbar
-      class="scroll-area"
-      :settings="settings"
-      @ps-scroll-y="scrollHanle"
-    > -->
     <v-container>
       <v-btn fab class="btn-refresh" @click="onRefresh"><v-icon>mdi-refresh</v-icon>
       </v-btn>
