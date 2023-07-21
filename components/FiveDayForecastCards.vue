@@ -88,6 +88,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.forecast{
+  margin-left: auto;
+  margin-right: auto;
+}
 .forecast-card {
   background: rgb(0, 68, 171) !important;
   width: 455px;
@@ -130,6 +134,11 @@ export default {
     text-align: center;
     color: #ffffff;
     margin-right: 13px;
+  }
+  &__temperature{
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
