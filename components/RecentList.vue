@@ -1,5 +1,5 @@
 <template>
-  <section class="recent" style="padding-bottom: 148px;" elevation="0">
+  <section class="recent" elevation="0" v-if="recentList">
     <ul class="no-bullets country-list">
       <li>
         <v-card class="recent-card pb-2">
@@ -185,7 +185,6 @@ export default {
     color: #ffffff;
     width: 50%;
     display: inline-block;
-    float: left;
     padding-top: 15px !important;
   }
 
@@ -219,9 +218,5 @@ export default {
   display: inline-block;
 }
 
-.set_low {
-  width: 50%;
-  display: inline-block;
-  float: right;
-}
+
 </style>
