@@ -2,14 +2,20 @@
   <!--- set to refresh every 5 minutes use built in js interval in the mounted lifecycle hook - need to update the timeout method-->
   <section class="sidebar" float elevation="0">
     <v-app>
+      <v-main>
       <v-card elevation="0">
         <v-navigation-drawer class="app__sidebar" width="375px" permanent>
-          <v-text-field v-model="searchQuery" @blur="weather" loading="isloading" prepend-inner-icon="mdi-map-marker-outline"
-            placeholder="Add Location ..." solo class="mt-3 pl-5" style="width: 83%;border-radius: 10px;">
+          <v-list>
+            <v-card class="sidebar__card" elevation="0">
+              <v-text-field v-model="searchQuery" @blur="weather" loading="isloading" prepend-inner-icon="mdi-map-marker-outline"
+            placeholder="Add Location ..." @keyup.enter="searchLocation" class="app__search" rounded hide-details="auto">
           </v-text-field>
+            </v-card>
           <recent-list />
+          </v-list>
         </v-navigation-drawer>
       </v-card>
+      </v-main>
     </v-app>
   </section>
 </template>

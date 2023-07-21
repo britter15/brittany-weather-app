@@ -15,7 +15,14 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      text: ", Vue!",
+      snackbar: true,
+    };
+  },
+};
 
 </script>
 
