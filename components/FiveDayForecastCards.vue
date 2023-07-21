@@ -1,6 +1,6 @@
 <template>
   <section class="forecast d-flex" elevation="0">
-    <v-card class="forecast-card" elevation="0">
+    <v-card class="forecast-card" elevation="0" mb-4>
       <v-container style="background-color: #104084;">
         <v-row no-gutters>
           <v-col cols="6">
@@ -19,7 +19,7 @@
         </v-row>
       </v-container>
     </v-card>
-    <v-card class="forecast-card" elevation="0">
+    <v-card class="forecast-card" elevation="0" mb-4>
       <v-container style="background-color: #104084;">
         <v-row no-gutters>
           <v-col cols="6">
