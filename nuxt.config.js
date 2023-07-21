@@ -27,6 +27,9 @@ export default {
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
+  // Using store
+  store: true,
+  
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
@@ -34,7 +37,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxtjs/axios", "@nuxtjs/moment"],
+  modules: [],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
