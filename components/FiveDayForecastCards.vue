@@ -1,5 +1,5 @@
 <template>
-  <section class="forecast d-flex" elevation="0">
+  <section class="forecast d-flex" elevation="0" v-if="forecastData">
     <v-card class="forecast-card" elevation="0" mb-4>
       <v-container style="background-color: #104084;">
         <v-row no-gutters>
@@ -16,7 +16,18 @@
               </div>
             </div>
           </v-col>
+        <v-row no-gutters>
+          <v-col cols="4">
+            <p class="forecast-card__day">{{ $moment(data.dt_txt).format("dddd")}}</p>
+          </v-col>
+          <v-col cols="4">
+          <div class="forecast-card__temperature">
+            <p class="forecast-card__range">{{ Math.round(data.main.temp_max - 273.15) }} &deg;c</p>
+            <p class="forecast-card__range">{{ Math.round(data.main.temp_min - 273.15) }} &deg;c</p>
+          </div>
+          </v-col>
         </v-row>
+      </v-row>
       </v-container>
     </v-card>
     <v-card class="forecast-card" elevation="0" mb-4>
