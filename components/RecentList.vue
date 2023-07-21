@@ -34,11 +34,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.recent {
+  ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  padding-left: 13px;
+  padding-right: 16px;
+}
 .recent-card {
-  max-width: 346px;
   border-radius: 20px;
-  background: #2566a333;
-
+  background: rgba(37, 102, 163, 0.2);
+  box-shadow: none !important;
+  border: 1px solid #377ce5;
+  padding: 15px 24px 20px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
   &__title {
     font-family: SF Pro Display;
     font-size: 22px;
@@ -48,9 +65,6 @@ export default {
     text-align: left;
     color: #ffffff;
     margin-bottom: 3px;
-    width: 50%;
-    display: inline-block;
-    padding-top: 15px !important;
   }
 
   &__time {
@@ -72,9 +86,8 @@ export default {
     letter-spacing: 0em;
     text-align: left;
     color: #ffffff;
-    width: 50%;
-    display: inline-block;
-    padding-top: 15px !important;
+    text-transform: capitalize;
+    margin-bottom: 0;
   }
 
   &__degree {
@@ -85,6 +98,7 @@ export default {
     letter-spacing: 0em;
     text-align: center;
     color: #ffffff;
+    margin-bottom: 0;
   }
 
   &__range {
@@ -95,15 +109,14 @@ export default {
     letter-spacing: 0em;
     text-align: right;
     color: #ffffff;
+    margin-bottom: 0;
+  }
+  &::before {
+    border-radius: 20px;
+  }
+  &:hover {
+    background: rgba(37, 102, 103, 0.5)
   }
 }
 
-.recent .no-bullets {
-  list-style: none;
-}
-
-.country-list {
-  width: 90%;
-  display: inline-block;
-}
 </style>
