@@ -5,19 +5,42 @@
         <v-card class="recent-card" @click="onCardClick(index)">
           <div class="address-info">
             <h1 class="recent-card__title">{{ data.name }}</h1>
-            <p class="recent-card__time">{{ $moment.unix(data.dt).format("hh:mm A") }}</p>
-            <p class="recent-card__description">{{ data.weather[0].__description }}</p>
-          </div>
-          <div class="weather-info">
-            <p class="recent-card__degree">{{ Math.round(data.main.temp- 273.15) }}&deg;</p>
-            <p class="recent-card__range"> High: {{ Math.round(data.main.temp_max - 273.15) }}&deg; Low: {{ Math.round(data.main.temp_min - 273.15) }}&deg;
+            <p class="recent-card__time">
+              {{ $moment.unix(data.dt).format("hh:mm A") }}
+            </p>
+            <p class="recent-card__description">
+              {{ data.weather[0].description }}
             </p>
           </div>
-      </v-card>
+          <div class="weather-info">
+            <p class="recent-card__degree">
+              {{ Math.round(data.main.temp - 273.15) }}&deg;
+            </p>
+            <p class="recent-card__range">
+              High: {{ Math.round(data.main.temp_max - 273.15) }}&deg; Low:
+              {{ Math.round(data.main.temp_min - 273.15) }}&deg;
+            </p>
+          </div>
+          <!-- <v-container>
+            <v-row no-gutters>
+              <v-col cols="6">
+              </v-col>
+              <v-col cols="6">
+              </v-col>
+              <v-col cols="12">
+              </v-col>
+              <v-col cols="6">
+              </v-col>
+              <v-col cols="6">
+              </v-col>
+            </v-row>
+          </v-container> -->
+        </v-card>
       </li>
     </ul>
   </section>
 </template>
+<!-- need to add mounted, methods, and computed below-->
 <script>
 export default {
   computed: {
@@ -28,9 +51,9 @@ export default {
   methods: {
     onCardClick(index) {
       this.$store.dispatch("updateCardSelection", this.recentList.length - index - 1);
-    }
+    },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -54,7 +77,6 @@ export default {
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center;
   justify-content: space-between;
   &__title {
     font-family: SF Pro Display;
@@ -66,7 +88,6 @@ export default {
     color: #ffffff;
     margin-bottom: 3px;
   }
-
   &__time {
     font-family: SF Pro Display;
     font-size: 14px;
@@ -77,7 +98,6 @@ export default {
     color: #ffffff;
     margin-bottom: 8px;
   }
-
   &__description {
     font-family: SF Pro Display;
     font-size: 16px;
@@ -86,10 +106,9 @@ export default {
     letter-spacing: 0em;
     text-align: left;
     color: #ffffff;
-    text-transform: capitalize;
+    text-transform: Capitalize;
     margin-bottom: 0;
   }
-
   &__degree {
     font-family: SF Pro Display;
     font-size: 50px;
@@ -100,7 +119,6 @@ export default {
     color: #ffffff;
     margin-bottom: 0;
   }
-
   &__range {
     font-family: SF Pro Display;
     font-size: 15px;
@@ -115,8 +133,7 @@ export default {
     border-radius: 20px;
   }
   &:hover {
-    background: rgba(37, 102, 103, 0.5)
+    background: rgba(37, 102, 163, 0.5);
   }
 }
-
 </style>
