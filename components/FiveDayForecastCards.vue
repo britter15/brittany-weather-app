@@ -76,7 +76,7 @@ export default {
 
 <style lang="scss" scoped>
 .forecast {
-  margin-left: auto;
+  margin-left: auto; 
   margin-right: auto;
 }
 
