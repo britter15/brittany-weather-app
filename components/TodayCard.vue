@@ -90,6 +90,7 @@ export default {
     letter-spacing: 0em;
     text-align: right;
     color: #ffffff;
+    margin-right: 5px;
   }
   &__degrees {
     font-family: SF Pro Display;
