@@ -146,7 +146,7 @@ export default {
   }
   &__degree {
     font-family: SF Pro Display;
-    font-size: 54px;
+    font-size: 35px;
     font-weight: 600;
     line-height: 76px;
     letter-spacing: 0em;
