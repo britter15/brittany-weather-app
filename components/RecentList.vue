@@ -118,6 +118,7 @@ export default {
     text-align: center;
     color: #ffffff;
     margin-bottom: 0;
+    margin-right: -46px;
   }
   &__range {
     font-family: SF Pro Display;
