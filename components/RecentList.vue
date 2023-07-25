@@ -6,7 +6,7 @@
           <div class="address-info">
             <h1 class="recent-card__title">{{ data.name }}</h1>
             <p class="recent-card__time">
-              {{ $moment.unix(data.dt).format("hh:mm A") }}
+              {{ $moment.unix(data.dt).format("h:mm A") }}
             </p>
             <p class="recent-card__description">
               {{ data.weather[0].description }}

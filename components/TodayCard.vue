@@ -28,7 +28,7 @@
               />
             </div>
             <div class="d-flex">
-              <p class="today-card__time">{{ $moment(data.dt_txt).format("h A") }}</p>
+              <p class="today-card__time">{{ $moment(data.dt_txt).format("hA") }}</p>
             </div>
           </v-col>
         </v-row>
