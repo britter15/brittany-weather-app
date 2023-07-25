@@ -80,6 +80,7 @@ export default {
     letter-spacing: 0em;
     text-align: left;
     color: #ffffff;
+    margin-left: 15px;
   }
   &__date {
     font-family: SF Pro Display;
