@@ -1,5 +1,4 @@
 <template>
-  <!-- only have to do a 3 hr forecast so stop after 3 hourly / forecast section here in doc-->
   <section class="today" v-if="forecastData">
     <v-card class="today-card" elevation="0">
       <v-container>
