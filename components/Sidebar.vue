@@ -68,7 +68,7 @@ export default {
     async searchLocation() {
       // Here you can perform the search logic for the entered location
       // You can access the entered location via `this.searchQuery`
-      const apiKey = "e0c71a38f202d6ce20e080c1f164cf2e"; // Replace with your OpenWeather API key
+      const apiKey = "b8f5d5a3c8c40a270978a5686d277fbd"; 
       const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${this.searchQuery}&appid=${apiKey}`;
       console.log(apiUrl);
 
