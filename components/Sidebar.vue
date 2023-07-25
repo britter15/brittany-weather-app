@@ -1,11 +1,9 @@
 <template>
-  <!--- set to refresh every 5 minutes use built in js interval in the mounted lifecycle hook - need to update the timeout method-->
   <section class="sidebar" float elevation="0">
     <v-app>
       <v-main>
         <v-card elevation="0">
           <v-navigation-drawer class="app__sidebar" width="375px" permanent>
-            <!-- need to add fab -->
             <v-list>
               <v-card class="sidebar__card" elevation="0">
                 <v-text-field
@@ -18,7 +16,6 @@
                   rounded
                   hide-details="auto"
                 ></v-text-field>
-                <!-- <Snackbar /> -->
                 <v-snackbar v-model="snackbarShow" :timeout="3000" color="blue" :top="true"
                   >Please input correct location</v-snackbar
                 >
