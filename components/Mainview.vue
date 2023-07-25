@@ -75,7 +75,7 @@ export default {
       // console.log(evt);
     },
     async onRefresh() {
-      const apiKey = "e0c71a38f202d6ce20e080c1f164cf2e";
+      const apiKey = "b8f5d5a3c8c40a270978A5686D277Ffbd";
       let updatedList = [];
       let updatedForecastList = [];
 
