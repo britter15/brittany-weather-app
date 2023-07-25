@@ -146,13 +146,13 @@ export default {
   }
   &__degree {
     font-family: SF Pro Display;
-    font-size: 64px;
+    font-size: 54px;
     font-weight: 600;
     line-height: 76px;
     letter-spacing: 0em;
     text-align: center;
     color: #ffffff;
-    margin-right: -19px;
+    margin-right: -15px;
   }
   &__description {
     font-family: SF Pro Display;
