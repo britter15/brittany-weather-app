@@ -68,7 +68,7 @@ export default {
     async searchLocation() {
       // Here you can perform the search logic for the entered location
       // You can access the entered location via `this.searchQuery`
-      const apiKey = "b8f5d5a3c8c40a270978a5686d277fbd"; 
+      const apiKey = "b8f5d5a3c8c40a270978a5686d277fbd";
       const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${this.searchQuery}&appid=${apiKey}`;
       console.log(apiUrl);
 
@@ -92,13 +92,25 @@ export default {
             `https://api.openweathermap.org/data/2.5/forecast?lat=${resp.coord.lat}&lon=${resp.coord.lon}&appid=${apiKey}`
           )
           .then((res) => {
-            console.log(res);
+            // console.log("res sidebar", res);
             this.$store.dispatch("updateForecastData", res);
           })
           .catch((err) => {
             console.log(err);
           });
       }
+      await this.$axios
+          .$get(
+            `https://api.openweathermap.org/data/2.5/onecall?lat=${resp.coord.lat}&lon=${resp.coord.lon}&appid=${apiKey}&exclude=daily`
+          )
+          .then((res) => {
+            // console.log("onecall sidebar", res.hourly);
+            this.$store.dispatch("updateTodayHourlyData", res.hourly);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+
     },
     scrollHanle(evt) {
       // console.log(evt);

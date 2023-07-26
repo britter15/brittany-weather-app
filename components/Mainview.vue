@@ -75,7 +75,7 @@ export default {
       // console.log(evt);
     },
     async onRefresh() {
-      const apiKey = "b8f5d5a3c8c40a270978A5686D277Ffbd";
+      const apiKey = "b8f5d5a3c8c40a270978a5686d277fbd";
       let updatedList = [];
       let updatedForecastList = [];
 
@@ -104,6 +104,18 @@ export default {
             .catch((err) => {
               console.log(err);
             });
+
+          await this.$axios
+            .$get(
+              `https://api.openweathermap.org/data/2.5/onecall?lat=${resp.coord.lat}&lon=${resp.coord.lon}&appid=${apiKey}&exclude=daily`
+            )
+            .then((res) => {
+              this.$store.dispatch("updateTodayHourlyData", res.hourly);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+
         }
       }
 
@@ -118,7 +130,24 @@ export default {
       return this.$store.getters.getRecentList;
     },
     getImageSrc() {
-      return `https://openweathermap.org/img/wn/${this.receivedData.weather[0].icon}@4x.png`;
+      // return `https://openweathermap.org/img/wn/${this.receivedData.weather[0].icon}@4x.png`;
+      let icon = this.receivedData.weather[0].icon;
+      if (icon == "01d" || icon == "01n" || icon == "02d" || icon == "02n") {
+        return "/Suncloud.png";
+      }
+      else if (icon == "03d" || icon == "03n" || icon == "04d" || icon == "04n") {
+        return "/TodaySunCloud.png";
+      }
+      else if (icon == "09d" || icon == "09n" || icon == "10d" || icon == "10n") {
+        return "/RainDrops.png";
+      }
+      else if (icon == "11d" || icon == "11n") {
+        return "/ThunderLightening.png";
+      }
+      else {
+        return "/SunCloudRain.png";
+      }
+
     },
   },
   mounted() {
@@ -143,7 +172,7 @@ export default {
     letter-spacing: 0em;
     text-align: center;
     color: #ffffff;
-    margin-top: -50px;
+    margin-top: -30px;
   }
   &__degree {
     font-family: SF Pro Display;

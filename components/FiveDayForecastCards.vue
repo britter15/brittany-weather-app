@@ -7,12 +7,17 @@
             <h2 class="forecast-card__title">5-Day Forecast</h2>
           </v-col>
           <v-col cols="12" v-for="(data, index) in fiveDayData.slice(0, 3)" :key="index">
-            <v-row no-gutters style="align-items: center;"> 
+            <v-row no-gutters style="align-items: center;">
               <v-col cols="4">
                 <p class="forecast-card__day">{{ $moment(data.dt_txt).format("dddd") }}</p>
               </v-col>
               <v-col cols="4" class="forecast-card__image">
-                <img :src="`https://openweathermap.org/img/wn/${data.weather[0].icon}.png`" alt="" />
+                <!-- <img :src="`https://openweathermap.org/img/wn/${data.weather[0].icon}.png`" alt="" /> -->
+                <img
+                  :src="getImageSrc(data.weather[0].icon)"
+                  class="forecast-card__graphic"
+                  alt=""
+                />
               </v-col>
               <v-col cols="4">
                 <div class="forecast-card__temperature">
@@ -32,12 +37,17 @@
             <h2 class="forecast-card__title">5-Day Forecast</h2>
           </v-col>
           <v-col cols="12" v-for="(data, index) in fiveDayData.slice(3, 5)" :key="index">
-            <v-row no-gutters style="align-items: center;"> 
+            <v-row no-gutters style="align-items: center;">
               <v-col cols="4">
                 <p class="forecast-card__day">{{ $moment(data.dt_txt).format("dddd") }}</p>
               </v-col>
               <v-col cols="4" class="forecast-card__image">
-                <img :src="`https://openweathermap.org/img/wn/${data.weather[0].icon}.png`" alt="" />
+                <!-- <img :src="`https://openweathermap.org/img/wn/${data.weather[0].icon}.png`" alt="" /> -->
+                <img
+                  :src="getImageSrc(data.weather[0].icon)"
+                  class="forecast-card__graphic"
+                  alt=""
+                />
               </v-col>
               <v-col cols="4">
                 <div class="forecast-card__temperature">
@@ -55,6 +65,25 @@
 
 <script>
 export default {
+  methods: {
+    getImageSrc(icon) {
+      if (icon == "01d" || icon == "01n" || icon == "02d" || icon == "02n") {
+        return "/Suncloud.png";
+      }
+      else if (icon == "03d" || icon == "03n" || icon == "04d" || icon == "04n") {
+        return "/TodaySunCloud.png";
+      }
+      else if (icon == "09d" || icon == "09n" || icon == "10d" || icon == "10n") {
+        return "/RainDrops.png";
+      }
+      else if (icon == "11d" || icon == "11n") {
+        return "/ThunderLightening.png";
+      }
+      else {
+        return "/SunCloudRain.png";
+      }
+    }
+  },
   computed: {
     forecastData() {
       return this.$store.getters.getForecastData;
@@ -76,7 +105,7 @@ export default {
 
 <style lang="scss" scoped>
 .forecast {
-  margin-left: auto; 
+  margin-left: auto;
   margin-right: auto;
 }
 
@@ -110,6 +139,13 @@ export default {
   &__image {
     display: flex;
     align-items: center;
+    justify-content: center;
+  }
+
+  &__graphic {
+    height: 50px;
+    width: 50px;
+    display: flex;
     justify-content: center;
   }
 
