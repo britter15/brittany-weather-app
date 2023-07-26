@@ -1,7 +1,7 @@
 <template>
   <section class="today" v-if="forecastData">
     <v-card class="today-card" elevation="0">
-      <v-container>
+      <v-container style="background-color: #104084; padding-bottom: 30px; padding-top: 30px;">
         <v-row no-gutters>
           <v-col cols="6">
             <h2 class="today-card__title">Today</h2>
@@ -55,7 +55,7 @@ export default {
 
 <style lang="scss" scoped>
 .today-card {
-  background: #0d3a8a;
+  background: #0044AB;
   max-width: 940px;
   border-radius: 20px;
   margin-left: auto;
@@ -81,6 +81,7 @@ export default {
     text-align: left;
     color: #ffffff;
     margin-left: 15px;
+    margin-bottom: 25px;
   }
   &__date {
     font-family: SF Pro Display;
@@ -98,7 +99,7 @@ export default {
     font-weight: 400;
     line-height: 21px;
     letter-spacing: 0em;
-    text-align: left;
+    text-align: center;
     color: #ffffff;
   }
   &__time {
@@ -108,7 +109,9 @@ export default {
     line-height: 21px;
     letter-spacing: 0em;
     text-align: center;
+    align-items: center;
     color: #ffffff;
+    margin-bottom: 10px;
   }
   &__graphic {
     height: 50px;
@@ -119,6 +122,7 @@ export default {
 }
 .d-flex {
   justify-content: space-between;
+  align-items: center;
 }
 </style>
 ＀

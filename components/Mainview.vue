@@ -143,16 +143,18 @@ export default {
     letter-spacing: 0em;
     text-align: center;
     color: #ffffff;
+    margin-top: -50px;
   }
   &__degree {
     font-family: SF Pro Display;
     font-size: 35px;
     font-weight: 600;
-    line-height: 76px;
+    line-height: 40px;
     letter-spacing: 0em;
     text-align: center;
     color: #ffffff;
     margin-right: -15px;
+    margin-bottom: 20px;
   }
   &__description {
     font-family: SF Pro Display;
@@ -193,7 +195,7 @@ export default {
   top: 27px;
   right: 45px;
   border-radius: 54px;
-  background-color: #15488a !important;
+  background-color: #15488A88 !important;
   width: 54px;
   height: 54px;
   border: 1px solid #377ce5;

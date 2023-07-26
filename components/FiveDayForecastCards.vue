@@ -2,12 +2,12 @@
   <section class="forecast d-flex" elevation="0" v-if="forecastData">
     <v-card class="forecast-card" elevation="0" mb-4>
       <v-container style="background-color: #104084;">
-        <v-row no-gutters>
+        <v-row no-gutters style="padding: 15px">
           <v-col cols="6">
             <h2 class="forecast-card__title">5-Day Forecast</h2>
           </v-col>
           <v-col cols="12" v-for="(data, index) in fiveDayData.slice(0, 3)" :key="index">
-            <v-row no-gutters>
+            <v-row no-gutters style="align-items: center;"> 
               <v-col cols="4">
                 <p class="forecast-card__day">{{ $moment(data.dt_txt).format("dddd") }}</p>
               </v-col>
@@ -27,12 +27,12 @@
     </v-card>
     <v-card class="forecast-card" elevation="0" mb-4>
       <v-container style="background-color: #104084;">
-        <v-row no-gutters>
+        <v-row no-gutters style="padding: 15px">
           <v-col cols="6">
             <h2 class="forecast-card__title">5-Day Forecast</h2>
           </v-col>
           <v-col cols="12" v-for="(data, index) in fiveDayData.slice(3, 5)" :key="index">
-            <v-row no-gutters>
+            <v-row no-gutters style="align-items: center;"> 
               <v-col cols="4">
                 <p class="forecast-card__day">{{ $moment(data.dt_txt).format("dddd") }}</p>
               </v-col>
@@ -127,7 +127,7 @@ export default {
   &__temperature {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: right;
   }
 }
 
