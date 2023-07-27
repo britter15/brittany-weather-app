@@ -6,24 +6,12 @@
           <v-navigation-drawer class="app__sidebar" width="375px" permanent>
             <v-list>
               <v-card class="sidebar__card" elevation="0">
-                <v-text-field
-                  v-model="searchQuery"
-                  loading="isloading"
-                  prepend-inner-icon="mdi-map-marker-outline"
-                  placeholder="Add Location..."
-                  @keyup.enter="searchLocation"
-                  class="app__search"
-                  rounded
-                  hide-details="auto"
-                ></v-text-field>
-                <v-snackbar v-model="snackbarShow" :timeout="3000" color="blue" :top="true"
-                  >Please input correct location</v-snackbar
-                >
-                <vue-custom-scrollbar
-                  class="scroll-area"
-                  :settings="settings"
-                  @ps-scroll-y="scrollHanle"
-                >
+                <v-text-field v-model="searchQuery" loading="isloading" prepend-inner-icon="mdi-map-marker-outline"
+                  placeholder="Add Location..." @keyup.enter="searchLocation" class="app__search" rounded
+                  hide-details="auto"></v-text-field>
+                <v-snackbar v-model="snackbarShow" :timeout="3000" color="blue" :top="true">Please input correct
+                  location</v-snackbar>
+                <vue-custom-scrollbar class="scroll-area" :settings="settings" @ps-scroll-y="scrollHanle">
                   <recent-list />
                 </vue-custom-scrollbar>
               </v-card>
@@ -98,8 +86,8 @@ export default {
           .catch((err) => {
             console.log(err);
           });
-      }
-      await this.$axios
+
+        await this.$axios
           .$get(
             `https://api.openweathermap.org/data/2.5/onecall?lat=${resp.coord.lat}&lon=${resp.coord.lon}&appid=${apiKey}&exclude=daily`
           )
@@ -110,6 +98,8 @@ export default {
           .catch((err) => {
             console.log(err);
           });
+      }
+
 
     },
     scrollHanle(evt) {
@@ -123,17 +113,20 @@ export default {
 .sidebar {
   max-width: 375px;
   height: 100vh;
+
   &__card {
     padding: 30px 0px 30px 0px;
     background-color: #104084;
   }
 }
+
 .scroll-area {
   position: relative;
   margin: auto;
   height: calc(100vh - 145px);
   background-color: #104084;
 }
+
 .v-list {
   padding: 0;
 }
@@ -141,6 +134,7 @@ export default {
 .app__sidebar {
   background-color: #104084;
 }
+
 .app__search {
   margin-right: 16px;
   margin-left: 13px;
